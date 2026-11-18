@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ravi | Web Technology Projects</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f5fb;
+    color: #222;
+}
+
+header {
+    background: linear-gradient(135deg, #16162e, #5142a5);
+    color: white;
+    text-align: center;
+    padding: 65px 20px;
+}
+
+header h1 {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+header p {
+    color: #ddd8ff;
+    font-size: 17px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 45px auto;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: white;
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 6px 25px rgba(0,0,0,.07);
+    transition: .3s;
+    border: 1px solid #eee;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(81,66,165,.15);
+}
+
+.icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    color: #5142a5;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.card a {
+    display: inline-block;
+    background: #5142a5;
+    color: white;
+    padding: 11px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.card a:hover {
+    background: #30246e;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #777;
+}
+
+@media(max-width:600px) {
+    header h1 {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>My Web Technology Projects</h1>
+    <p>HTML • CSS • JavaScript | Project Portfolio</p>
+</header>
+
+<div class="container">
+    <div class="grid">
+
+        <div class="card">
+            <div class="icon">🍔</div>
+            <h2>Food Corner</h2>
+            <p>Restaurant website featuring food menus and an attractive design.</p>
+            <a href="FoodCorner.html">View Project →</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏥</div>
+            <h2>Hospital</h2>
+            <p>Healthcare website with hospital services and information.</p>
+            <a href="hospital.html">View Project →</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎓</div>
+            <h2>College</h2>
+            <p>College website featuring academic and institutional details.</p>
+            <a href="collage.html">View Project →</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">📚</div>
+            <h2>Book Store</h2>
+            <p>Online bookstore website with book collections and categories.</p>
+            <a href="BookStore.html">View Project →</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">💻</div>
+            <h2>CS Department</h2>
+            <p>Computer Science department website with faculty and programs.</p>
+            <a href="CSDepartment.html">View Project →</a>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 | Web Technology Project Portfolio
+</footer>
+
+</body>
+</html>
