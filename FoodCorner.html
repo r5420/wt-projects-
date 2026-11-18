@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bite Boulevard | Food Corner</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--orange:#ff6b35;--gold:#ffbd59;--dark:#171717;--muted:#b9b9b9;--cream:#fff7ed}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--dark);color:#fff;line-height:1.65}
+header{position:sticky;top:0;z-index:10;background:rgba(20,20,20,.94);backdrop-filter:blur(10px);border-bottom:1px solid #343434;padding:14px 7%;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{font-size:1.35rem;font-weight:900;letter-spacing:1px;color:#fff}.logo span{color:var(--orange)}
+nav{display:flex;gap:24px;flex-wrap:wrap}nav a{color:#ddd;text-decoration:none;font-size:.92rem;font-weight:bold;transition:.25s}nav a:hover{color:var(--orange)}
+.hero{min-height:520px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:35px;padding:65px 7%;background:radial-gradient(circle at 20% 20%,#40251a 0,transparent 38%),linear-gradient(120deg,#191919,#24201d)}
+.hero-copy .tag{display:inline-block;border:1px solid #ff6b3570;background:#ff6b3517;color:var(--gold);padding:7px 14px;border-radius:30px;font-size:.82rem;letter-spacing:1px;margin-bottom:20px}
+.hero h1{font-size:clamp(2.6rem,6vw,5rem);line-height:1.08;margin-bottom:20px}.hero h1 span{color:var(--orange)}
+.hero p{color:#d0d0d0;max-width:520px;margin-bottom:26px}
+.btn{display:inline-block;text-decoration:none;padding:13px 22px;border-radius:8px;font-weight:bold;transition:.25s}.btn-primary{background:var(--orange);color:#fff;box-shadow:0 7px 22px #ff6b3533}.btn-primary:hover{transform:translateY(-3px);background:#ff824f}.btn-outline{border:1px solid #777;color:#fff;margin-left:10px}.btn-outline:hover{border-color:var(--orange);color:var(--orange)}
+.hero-image{height:380px;border-radius:24px;background:linear-gradient(0deg,#0006,#0000),url('https://images.unsplash.com/photo-155593‍?auto=format&fit=crop&w=1000&q=85');background-image:linear-gradient(0deg,#0005,#0000),url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=85');background-size:cover;background-position:center;box-shadow:0 20px 50px #0007;position:relative;overflow:hidden}.hero-image:after{content:'Fresh • Flavor • Happiness';position:absolute;bottom:22px;left:22px;background:#171717d9;padding:10px 16px;border-radius:30px;font-weight:bold;color:var(--gold)}
+.stats{display:flex;gap:35px;margin-top:35px}.stats strong{display:block;font-size:1.4rem;color:var(--gold)}.stats small{color:#aaa}
+section{padding:70px 7%}.section-head{text-align:center;margin-bottom:38px}.section-head .eyebrow{color:var(--orange);text-transform:uppercase;letter-spacing:2px;font-weight:bold;font-size:.8rem}.section-head h2{font-size:2.35rem;margin-top:8px}.section-head p{color:var(--muted);margin-top:8px}
+.about{background:#202020;display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}.about-photo{height:330px;border-radius:18px;background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85') center/cover;box-shadow:0 14px 35px #0005}.about-text h2{font-size:2.2rem;margin-bottom:15px}.about-text p{color:#c2c2c2;margin-bottom:15px}.features{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.features span{background:#2d2d2d;border:1px solid #414141;padding:9px 13px;border-radius:8px;color:var(--gold);font-size:.88rem}
+.menu-section{background:#171717}.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.menu-card{background:#242424;border:1px solid #343434;border-radius:16px;overflow:hidden;transition:.3s}.menu-card:hover{transform:translateY(-8px);border-color:#ff6b3580;box-shadow:0 18px 30px #0004}.food-img{height:205px;background-size:cover;background-position:center}.food1{background-image:url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80')}.food2{background-image:url('https://images.unsplash.com/photo- pasta?auto=format&fit=crop&w=800&q=80')}.food2{background-image:url('https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80')}.food3{background-image:url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80')}.food4{background-image:url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80')}.food5{background-image:url('https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80')}.food6{background-image:url('https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80')}.menu-info{padding:18px}.menu-info h3{font-size:1.15rem}.menu-info p{color:#aaa;font-size:.9rem;margin:6px 0 13px}.price-row{display:flex;justify-content:space-between;align-items:center;color:var(--gold);font-weight:bold}.badge{font-size:.72rem;color:#fff;background:var(--orange);padding:4px 9px;border-radius:20px}
+.special{background:linear-gradient(100deg,#382116,#201b18);display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap;text-align:center}.special h2{font-size:2rem}.special p{color:#ccc;margin:8px 0 20px}.special .offer{font-size:3rem;font-weight:900;color:var(--gold)}
+.hours-contact{background:#202020;display:grid;grid-template-columns:1fr 1fr;gap:24px}.info-card{padding:28px;background:#292929;border:1px solid #3a3a3a;border-radius:15px}.info-card h3{color:var(--orange);margin-bottom:15px;font-size:1.35rem}.info-card p{color:#c4c4c4;margin:8px 0}.hours-line{display:flex;justify-content:space-between;border-bottom:1px dashed #454545;padding:9px 0;color:#ddd}
+footer{text-align:center;padding:28px 15px;background:#111;color:#999;border-top:1px solid #333}footer strong{color:var(--orange)}
+@media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:45px}.hero-image{height:320px}.menu-grid{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.hours-contact{grid-template-columns:1fr}}
+@media(max-width:560px){header{padding:14px 5%;flex-direction:column}nav{justify-content:center;gap:14px}.hero{padding:42px 5%}.hero-image{height:260px}.stats{gap:20px}.stats strong{font-size:1.2rem}section{padding:52px 5%}.menu-grid{grid-template-columns:1fr}.section-head h2{font-size:1.9rem}.btn-outline{margin:10px 0 0 0}.hero h1{font-size:2.7rem}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">BITE <span>BOULEVARD</span></div>
+  <nav><a href="#home">Home</a><a href="#about">Our Story</a><a href="#menu">Menu</a><a href="#special">Special Offer</a><a href="#contact">Contact</a></nav>
+</header>
+<main>
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <span class="tag">YOUR NEIGHBOURHOOD FOOD SPOT</span>
+    <h1>Good food.<br><span>Great mood.</span></h1>
+    <p>From crispy bites to cheesy favourites, discover freshly prepared food made to turn everyday moments into delicious memories.</p>
+    <a href="#menu" class="btn btn-primary">Explore Our Menu ↗</a><a href="#about" class="btn btn-outline">Discover Us</a>
+    <div class="stats"><div><strong>Fresh Daily</strong><small>Quality ingredients</small></div><div><strong>Made With Love</strong><small>Every single order</small></div></div>
+  </div>
+  <div class="hero-image" role="img" aria-label="Delicious food spread"></div>
+</section>
+<section class="about" id="about">
+  <div class="about-photo" role="img" aria-label="Cozy restaurant dining area"></div>
+  <div class="about-text"><span class="eyebrow">A LITTLE ABOUT US</span><h2>Food that brings people together.</h2><p>Bite Boulevard is all about tasty comfort food, welcoming vibes and memorable moments. Whether you're catching up with friends or grabbing a quick meal, there's always something delicious waiting.</p><p>We believe great food doesn't need a special occasion—it can make any day special.</p><div class="features"><span>✦ Freshly Prepared</span><span>✦ Friendly Service</span><span>✦ Big Flavours</span></div></div>
+</section>
+<section class="menu-section" id="menu">
+  <div class="section-head"><span class="eyebrow">CUSTOMER FAVOURITES</span><h2>Explore Our Menu</h2><p>Something delicious for every craving.</p></div>
+  <div class="menu-grid">
+    <article class="menu-card"><div class="food-img food1"></div><div class="menu-info"><h3>Classic Street Burger</h3><p>Juicy patty, crisp lettuce, cheese and our signature sauce.</p><div class="price-row"><span>₹189</span><span class="badge">POPULAR</span></div></div></article>
+    <article class="menu-card"><div class="food-img food2"></div><div class="menu-info"><h3>Creamy Alfredo Pasta</h3><p>Silky white sauce, herbs and a generous sprinkle of cheese.</p><div class="price-row"><span>₹229</span><span>Veg</span></div></div></article>
+    <article class="menu-card"><div class="food-img food3"></div><div class="menu-info"><h3>Loaded Pizza</h3><p>Golden crust topped with veggies and melted mozzarella.</p><div class="price-row"><span>₹249</span><span class="badge">BEST SELLER</span></div></div></article>
+    <article class="menu-card"><div class="food-img food4"></div><div class="menu-info"><h3>Garden Fresh Bowl</h3><p>A colourful mix of fresh greens, crunchy toppings and dressing.</p><div class="price-row"><span>₹159</span><span>Fresh</span></div></div></article>
+    <article class="menu-card"><div class="food-img food5"></div><div class="menu-info"><h3>Choco Brownie</h3><p>Rich chocolate dessert with a soft centre and sweet finish.</p><div class="price-row"><span>₹119</span><span>Sweet Treat</span></div></div></article>
+    <article class="menu-card"><div class="food-img food6"></div><div class="menu-info"><h3>Cold Coffee</h3><p>Chilled creamy coffee blended for a refreshing break.</p><div class="price-row"><span>₹99</span><span>Chilled</span></div></div></article>
+  </div>
+</section>
+<section class="special" id="special"><div><span class="eyebrow">A TREAT FOR YOU</span><h2>Make your meal a little more special!</h2><p>Bring a friend and enjoy a delicious food break together.</p><a href="#menu" class="btn btn-primary">Find Your Favourite</a></div><div class="offer">YUM!<br><span style="font-size:1rem;color:#fff;font-weight:500">Happiness served fresh</span></div></section>
+<section class="hours-contact" id="contact"><div class="info-card"><h3>⏰ Opening Hours</h3><div class="hours-line"><span>Monday – Friday</span><span>11 AM – 10 PM</span></div><div class="hours-line"><span>Saturday</span><span>11 AM – 11 PM</span></div><div class="hours-line"><span>Sunday</span><span>12 PM – 10 PM</span></div><p>Kitchen closes 30 minutes before closing time.</p></div><div class="info-card"><h3>📍 Visit Bite Boulevard</h3><p>Come over for a quick bite, a relaxed meal or a catch-up with friends.</p><p><strong>Address:</strong> Your Street, Your City</p><p><strong>Email:</strong> hello@biteboulevard.example</p><p><strong>Phone:</strong> +91 98765 43210</p></div></section>
+</main>
+<footer><p>© 2026 <strong>Bite Boulevard</strong> · Made for food lovers, with flavour.</p></footer>
+</body>
+</html>

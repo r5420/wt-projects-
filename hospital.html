@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Care Hospital</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f2f8f7;
+            color: #263b3a;
+            line-height: 1.7;
+        }
+
+        .top-bar {
+            background: #123f43;
+            color: #e8f5f3;
+            text-align: right;
+            padding: 8px 7%;
+            font-size: 13px;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 25px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-mark {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: #dff3ee;
+            color: #168477;
+            display: grid;
+            place-items: center;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        header h1 {
+            color: #174e50;
+            font-size: 28px;
+            line-height: 1.2;
+        }
+
+        header p {
+            color: #718785;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        nav {
+            background: #168477;
+            padding: 0 7%;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.25s;
+        }
+
+        nav a:hover {
+            background: #106b62;
+        }
+
+        .hero {
+            background: linear-gradient(110deg, #dff3ee 0%, #eef8f6 60%, #c8e9e2 100%);
+            padding: 55px 8%;
+            border-bottom: 1px solid #d4eae5;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            color: #168477;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            color: #174e50;
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #58716e;
+            max-width: 650px;
+        }
+
+        main {
+            max-width: 1100px;
+            width: 88%;
+            margin: 38px auto 55px;
+        }
+
+        .intro {
+            background: #ffffff;
+            border-left: 5px solid #168477;
+            border-radius: 8px;
+            padding: 25px 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 5px 18px rgba(24, 78, 75, 0.06);
+        }
+
+        .intro h2, .departments h2, .emergency h2 {
+            color: #174e50;
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            color: #647976;
+        }
+
+        .departments {
+            background: #ffffff;
+            padding: 28px;
+            border-radius: 10px;
+            margin-bottom: 28px;
+            box-shadow: 0 5px 18px rgba(24, 78, 75, 0.06);
+        }
+
+        .department-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 13px;
+            list-style: none;
+            margin-top: 18px;
+        }
+
+        .department-list li {
+            background: #f0f8f6;
+            border: 1px solid #dceee9;
+            border-radius: 8px;
+            padding: 15px;
+            color: #35615c;
+            font-weight: 600;
+        }
+
+        .department-list li::before {
+            content: "✚";
+            color: #168477;
+            margin-right: 10px;
+        }
+
+        .emergency {
+            background: #fff7f4;
+            border: 1px solid #f4d9d1;
+            border-radius: 10px;
+            padding: 27px 28px;
+        }
+
+        .emergency h2 {
+            color: #a84636;
+        }
+
+        .emergency p {
+            color: #765e59;
+            margin-bottom: 13px;
+        }
+
+        .emergency h3 {
+            display: inline-block;
+            background: #b84e3c;
+            color: #ffffff;
+            padding: 10px 17px;
+            border-radius: 6px;
+            font-size: 17px;
+        }
+
+        footer {
+            background: #123f43;
+            color: #d8ebe7;
+            text-align: center;
+            padding: 22px 15px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .top-bar {
+                text-align: center;
+            }
+
+            header {
+                padding: 20px 6%;
+            }
+
+            header h1 {
+                font-size: 23px;
+            }
+
+            nav {
+                padding: 5px 4%;
+                justify-content: center;
+            }
+
+            nav a {
+                padding: 10px;
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 38px 7%;
+            }
+
+            main {
+                width: 92%;
+                margin-top: 25px;
+            }
+
+            .intro, .departments, .emergency {
+                padding: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        Caring for your health, every day
+    </div>
+
+    <header>
+        <div class="brand">
+            <div class="brand-mark">+</div>
+            <div>
+                <h1>City Care Hospital</h1>
+                <p>Quality Healthcare for Everyone</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About Hospital</a>
+        <a href="#">Doctors</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <div class="eyebrow">Your health is our priority</div>
+            <h2>Welcome to City Care Hospital</h2>
+            <p>Compassionate care and modern healthcare facilities for you and your family.</p>
+        </div>
+    </div>
+
+    <main>
+        <section class="intro">
+            <h2>About Our Hospital</h2>
+            <p>
+                City Care Hospital provides modern healthcare facilities
+                with experienced doctors and trained medical staff.
+            </p>
+        </section>
+
+        <section class="departments">
+            <h2>Our Departments</h2>
+            <ul class="department-list">
+                <li>Cardiology</li>
+                <li>Neurology</li>
+                <li>Orthopedics</li>
+                <li>General Medicine</li>
+                <li>Pediatrics</li>
+            </ul>
+        </section>
+
+        <section class="emergency">
+            <h2>Emergency Services</h2>
+            <p>
+                Emergency services are available 24 hours a day,
+                7 days a week.
+            </p>
+            <h3>Emergency Contact: 9876543210</h3>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 City Care Hospital</p>
+    </footer>
+
+</body>
+</html>

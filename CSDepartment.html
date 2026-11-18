@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Computer Science | XYZ University</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --ink:#1d2440; --muted:#69718b; --purple:#6555d9; --purple-dark:#29204f; --line:#e8e7f4; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'DM Sans',Segoe UI,Arial,sans-serif; line-height:1.7; color:var(--ink); background:#f6f7fc; }
+        .university-header { position:relative; overflow:hidden; color:white; padding:70px 20px 66px; text-align:center; background:linear-gradient(125deg,#211747 0%,#49378b 52%,#7865e9 100%); }
+        .university-header::before,.university-header::after { content:""; position:absolute; border:1px solid rgba(255,255,255,.15); border-radius:50%; pointer-events:none; }
+        .university-header::before { width:380px;height:380px;right:-100px;top:-190px;box-shadow:0 0 0 35px rgba(255,255,255,.035),0 0 0 75px rgba(255,255,255,.025); }
+        .university-header::after { width:300px;height:300px;left:-120px;bottom:-180px;box-shadow:0 0 0 40px rgba(255,255,255,.035); }
+        .header-content { position:relative; z-index:1; }
+        .eyebrow { display:inline-block; padding:7px 14px; border:1px solid rgba(255,255,255,.25); border-radius:50px; color:#e6e1ff; font-size:12px; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; background:rgba(255,255,255,.08); }
+        .university-header h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(30px,5vw,52px); line-height:1.15; letter-spacing:-1px; margin-bottom:12px; }
+        .university-header h3 { color:#e5e0ff; font-weight:500; font-size:18px; letter-spacing:2px; }
+        .header-note { max-width:650px; margin:20px auto 0; color:#dedaff; font-size:15px; }
+        nav { position:sticky; top:0; z-index:10; background:rgba(255,255,255,.92); backdrop-filter:blur(14px); display:flex; justify-content:center; flex-wrap:wrap; gap:6px; padding:12px 16px; border-bottom:1px solid #ebeaf5; box-shadow:0 5px 20px rgba(31,25,72,.06); }
+        nav a { color:#51477f; text-decoration:none; font-weight:700; font-size:13px; padding:9px 15px; border-radius:50px; transition:.25s ease; }
+        nav a:hover,nav a:focus { color:#fff; background:var(--purple); transform:translateY(-2px); outline:none; }
+        main { width:min(92%,1120px); margin:42px auto 65px; }
+        section { background:#fff; padding:32px; margin-bottom:25px; border:1px solid var(--line); border-radius:20px; box-shadow:0 12px 35px rgba(45,37,94,.055); transition:transform .25s,box-shadow .25s; }
+        section:hover { transform:translateY(-3px); box-shadow:0 18px 38px rgba(45,37,94,.09); }
+        section h2 { color:#322866; font-family:'Space Grotesk',sans-serif; font-size:24px; margin-bottom:16px; display:flex; align-items:center; gap:12px; }
+        section h2::before { content:""; width:5px; height:26px; border-radius:10px; background:linear-gradient(#8d7cff,#5444c6); }
+        section p { color:var(--muted); }
+        #welcome { background:linear-gradient(135deg,#fff 55%,#f0edff); position:relative; overflow:hidden; }
+        #welcome p { max-width:800px; font-size:16px; }
+        .welcome-tag { display:inline-block; margin-bottom:12px; font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:#6757cc; font-weight:700; }
+        .quick-links { display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
+        .quick-links a { display:inline-block; text-decoration:none; background:var(--purple); color:white; padding:10px 17px; border-radius:9px; font-size:13px; font-weight:700; box-shadow:0 6px 15px rgba(101,85,217,.2); transition:.2s; }
+        .quick-links a.secondary { color:#5447a8; background:#efedff; box-shadow:none; }
+        .quick-links a:hover { transform:translateY(-2px); filter:brightness(1.05); }
+        #programs ul { list-style:none; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:8px; }
+        #programs li { padding:19px 20px; border:1px solid #e8e5fb; border-radius:14px; background:linear-gradient(145deg,#fbfaff,#f5f3ff); color:#403875; font-weight:700; display:flex; align-items:center; gap:13px; transition:.25s; }
+        #programs li::before { content:"✦"; display:grid; place-items:center; width:36px;height:36px; flex-shrink:0; border-radius:11px; background:#e7e2ff; color:#6555d9; font-size:17px; }
+        #programs li:hover { transform:translateY(-4px); border-color:#c9c1ff; box-shadow:0 10px 22px rgba(101,85,217,.1); }
+        .table-wrap { overflow-x:auto; margin-top:12px; border:1px solid #e7e5f2; border-radius:13px; }
+        table { width:100%; border-collapse:collapse; min-width:520px; text-align:left; }
+        th { background:linear-gradient(100deg,#403477,#6856c7); color:#fff; font-weight:700; font-size:13px; letter-spacing:.3px; }
+        th,td { padding:15px 17px; border-bottom:1px solid #e9e7f2; }
+        tbody tr:nth-child(even) { background:#faf9ff; }
+        tbody tr:hover { background:#f0edff; }
+        tbody tr:last-child td { border-bottom:0; }
+        td:first-child { font-weight:700; color:#352c70; }
+        #notices ol { list-style:none; padding:0; display:grid; gap:12px; counter-reset:notices; }
+        #notices li { counter-increment:notices; display:flex; align-items:flex-start; gap:13px; padding:15px 17px; border-radius:12px; background:#fffaf0; border:1px solid #f3e7ca; color:#665539; }
+        #notices li::before { content:counter(notices,decimal-leading-zero); color:#a77a25; font-weight:800; font-size:12px; background:#ffedc7; padding:4px 7px; border-radius:6px; }
+        .contact-details { background:linear-gradient(135deg,#f5f2ff,#faf9ff); border:1px solid #e6e1ff; border-left:5px solid #6956a8; border-radius:13px; padding:20px 22px; }
+        .contact-details p { margin:5px 0; }
+        .contact-details p:first-child { color:#332a6d; font-weight:800; }
+        footer { background:#21183f; color:#e5e0f5; text-align:center; padding:26px 15px; font-size:14px; }
+        footer p { opacity:.9; }
+        @media(max-width:650px) { .university-header { padding:50px 16px; } .university-header h3 { font-size:15px; } nav { gap:2px; padding:9px; } nav a { padding:8px 10px; font-size:12px; } main { width:94%; margin:25px auto 45px; } section { padding:22px 19px; border-radius:16px; } section h2 { font-size:20px; } #programs ul { grid-template-columns:1fr; } }
+        @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; } }
+    </style>
+</head>
+<body>
+    <header class="university-header">
+        <div class="header-content">
+            <span class="eyebrow">Learn · Innovate · Build</span>
+            <h1>Department of Computer Science</h1>
+            <h3>XYZ University</h3>
+            <p class="header-note">Explore technology, develop your skills, and shape the digital future through learning and innovation.</p>
+        </div>
+    </header>
+    <nav aria-label="Main navigation">
+        <a href="#welcome">Home</a>
+        <a href="#welcome">About Department</a>
+        <a href="#faculty">Faculty</a>
+        <a href="#programs">Courses</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <main>
+        <section id="welcome">
+            <span class="welcome-tag">Welcome to our department</span>
+            <h2>Welcome to the Department</h2>
+            <p>The Department of Computer Science provides quality education and develops technical and problem-solving skills among students.</p>
+            <div class="quick-links"><a href="#programs">Explore Programs</a><a class="secondary" href="#faculty">Meet Our Faculty</a></div>
+        </section>
+        <section id="programs">
+            <h2>Programs Offered</h2>
+            <ul>
+                <li>BCA</li><li>MCA</li><li>B.Tech Computer Science</li><li>M.Tech Computer Science</li>
+            </ul>
+        </section>
+        <section id="faculty">
+            <h2>Faculty Members</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Name</th><th>Designation</th><th>Specialization</th></tr></thead>
+                    <tbody>
+                        <tr><td>Dr. Amit Sharma</td><td>Professor</td><td>Artificial Intelligence</td></tr>
+                        <tr><td>Dr. Neha Verma</td><td>Associate Professor</td><td>Data Science</td></tr>
+                        <tr><td>Mr. Rahul Singh</td><td>Assistant Professor</td><td>Computer Networks</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section id="notices">
+            <h2>Important Notice</h2>
+            <ol>
+                <li>Mid-term examinations will begin from 15 September.</li>
+                <li>Students must submit their assignments before the deadline.</li>
+                <li>Registration for the seminar is now open.</li>
+            </ol>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-details">
+                <p>Department of Computer Science</p><p>XYZ University</p><p>Jaipur, Rajasthan</p><p>Email: cs@xyzuniversity.edu</p>
+            </div>
+        </section>
+    </main>
+    <footer><p>© 2026 XYZ University · Department of Computer Science</p></footer>
+</body>
+</html>
